@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
-    //hacemos  referencia a la tabla usuarios
+    use HasApiTokens;
+
     protected $table = 'usuarios';
-  //hacer que los campos sean editables
+
     protected $fillable = [
         'nombre',
         'apaterno',
